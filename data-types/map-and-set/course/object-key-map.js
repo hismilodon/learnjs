@@ -1,8 +1,8 @@
 "use strict";
 
-let john = {name: 'John', age: 31};
-let tom = {name: 'Tom', age: 25};
-let peter = {name: 'Peter'}
+let john = { name: 'John', age: 31 };
+let tom = { name: 'Tom', age: 25 };
+let peter = { name: 'Peter' }
 
 let visitsCountMap = new Map();
 
@@ -21,14 +21,14 @@ console.log(visitsCountMap.entries());
 let obj = Object.fromEntries(visitsCountMap.entries());
 console.log(obj);
 
-for(let item of visitsCountMap) {
-    //alert(item);
+for (let item of visitsCountMap) {
+  //alert(item);
 }
 
-for(let key of visitsCountMap.keys()){
-    //console.log(key);
+for (let key of visitsCountMap.keys()) {
+  //console.log(key);
 }
 
-for(let value of visitsCountMap.values()){
-    //console.log(value);
+for (let value of visitsCountMap.values()) {
+  //console.log(value);
 }
