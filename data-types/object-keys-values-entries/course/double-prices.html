@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Double Prices</title>
+</head>
+
+<body>
+  <script>
+    let prices = {
+      apple: 12.3,
+      orange: 23.6,
+      banana: 33.1,
+      debug: function () {
+        console.log(this.apple, this.orange, this.banana);
+      },
+    };
+
+    let entries = Object.entries(prices);
+    entries.forEach(item => {
+      if (!isNaN(item[1]))
+        item[1] *= 2;
+    });
+    let double_prices = Object.fromEntries(entries);
+    prices.debug = () => alert('Modified func!');
+
+    console.log(prices);
+    prices.debug();
+    console.log(double_prices);
+    double_prices.debug();
+  </script>
+</body>
+
+</html>

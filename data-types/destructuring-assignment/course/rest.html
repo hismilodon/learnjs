@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Rest '...'</title>
+</head>
+
+<body>
+  <script>
+    let [name1, name2, ...rest] = ["Julius"];
+
+    alert(name1); // Julius
+    alert(name2); // Caesar
+
+    // Note that type of `rest` is Array.
+    alert(rest[0]); // Consul
+    alert(rest[1]); // of the Roman Republic
+    alert(rest.length); // 2
+  </script>
+</body>
+
+</html>
