@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The last day of month</title>
+</head>
+
+<body>
+  <script>
+    alert(getLastDayOfMonth(2012, 1));
+    function getLastDayOfMonth(year, month) {
+      let lastDayOfPreviousMonth = new Date(year, month+1, 0);
+      return lastDayOfPreviousMonth.getDate();
+    }
+  </script>
+</body>
+
+</html>

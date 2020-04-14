@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How many seconds till tomorrow</title>
+</head>
+
+<body>
+  <script>
+    function secondsTillTomorrow(dt = new Date()) {
+      let tomorrow = new Date(dt.getFullYear(), dt.getMonth(), dt.getDate() + 1);
+      return Math.round((tomorrow.getTime() - dt.getTime()) / 1000);
+    }
+
+    alert(secondsTillTomorrow());
+  </script>
+</body>
+
+</html>
