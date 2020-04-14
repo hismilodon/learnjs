@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    alert(formatDate(new Date(new Date - 1))); // "right now"
+
+    alert(formatDate(new Date(new Date - 30 * 1000))); // "30 sec. ago"
+
+    alert(formatDate(new Date(new Date - 5 * 60 * 1000))); // "5 min. ago"
+
+    // yesterday's date like 31.12.16 20:00
+    alert(formatDate(new Date(new Date - 86400 * 1000)));
+
+    function formatDate(dt) {
+      let diff = new Date() - dt;
+
+      let padZero = function (num, size) {
+        let numArray = Array.from(num.toFixed(0).toString());
+        let padArray = (new Array(size - numArray.length)).fill('0');
+        return padArray.concat(numArray).join('');
+      }
+
+      if (diff < 1000) {
+        return 'right now';
+      } else if (diff < (60 * 1000)) {
+        return `${Math.round(diff / 1000)} sec. ago`;
+      } else if (diff < (60 * 60 * 1000)) {
+        return `${Math.round(diff / (60 * 1000))} min. ago`;
+      } else {
+        return `${padZero(dt.getDate(), 2)}.${padZero(dt.getMonth() + 1, 2)}.${padZero(dt.getFullYear() % 100, 2)} ${padZero(dt.getHours(), 2)}:${padZero(dt.getMinutes(), 2)}`;
+      }
+    }
+  </script>
+</body>
+
+</html>

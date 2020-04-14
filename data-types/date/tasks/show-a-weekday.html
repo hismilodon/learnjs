@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Show a weekday</title>
+</head>
+
+<body>
+  <script>
+    let date = new Date(2012, 0, 3);  // 3 Jan 2012
+    alert(getWeekDay(date));        // should output "TU"
+
+    date = new Date(2014, 0, 3); // 3 Jan 2014
+    alert(getWeekDay(date)); // FR
+
+    function getWeekDay(dt) {
+      return ['SU', 'MO', 'TU', 'WE', 'TH', 'FR', 'SA'][dt.getDay()];
+    }
+  </script>
+</body>
+
+</html>

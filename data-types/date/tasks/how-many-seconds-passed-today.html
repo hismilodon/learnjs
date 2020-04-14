@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How many seconds passed today</title>
+</head>
+<body>
+  <script>
+    function secPassed(dt = new Date()){
+      return dt.getHours() * 3600 + dt.getMinutes() * 60 + dt.getSeconds();
+    }
+    alert(secPassed());
+    
+  </script>
+</body>
+</html>
