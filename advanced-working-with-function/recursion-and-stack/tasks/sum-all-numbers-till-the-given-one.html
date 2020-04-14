@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sum all numbers till the given one</title>
+</head>
+
+<body>
+  <script>
+    function sumUsingForLoop(n) {
+      let sum = 0;
+      for (let i = 1; i <= n; i++) {
+        sum += i;
+      }
+      return sum;
+    }
+
+    function sumUsingRecursion(n) {
+      return n == 1 ? 1 : n + sumUsingForLoop(n - 1);
+    }
+
+    alert(sumUsingForLoop(100));
+    alert(sumUsingRecursion(100));
+  </script>
+</body>
+
+</html>

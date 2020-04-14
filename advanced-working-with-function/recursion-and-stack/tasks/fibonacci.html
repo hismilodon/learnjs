@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fibonacci numbers</title>
+</head>
+
+<body>
+  <script>
+    function fib(n) {
+      if(n==1) return 1;
+      if(n==2) return 1;
+      return fib(n-2) + fib(n-1);
+    }
+    alert(fib(3));
+    alert(fib(7));
+    alert(fib(77));
+  </script>
+</body>
+
+</html>
