@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sort by field</title>
+</head>
+
+<body>
+  <script>
+    let users = [
+      { name: "John", age: 20, surname: "Johnson" },
+      { name: "Pete", age: 18, surname: "Peterson" },
+      { name: "Ann", age: 19, surname: "Hathaway" }
+    ];
+
+    users.sort(byField('name'));
+    alert(JSON.stringify(users, (key, value)=>value, 2));
+    users.sort(byField('age'));
+    alert(JSON.stringify(users, (key, value)=>value, 2));
+
+    function byField(field){
+      return function(a, b){
+        return a[field] > b[field]? 1 : -1;
+      }
+    }
+
+  </script>
+</body>
+
+</html>

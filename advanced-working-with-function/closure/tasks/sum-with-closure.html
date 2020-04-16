@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sum with closure</title>
+</head>
+
+<body>
+  <script>
+    alert(sum(1)(2)); // = 3;
+    alert(sum(5)(-1)); // = 4;
+
+    function sum(firstNum) {
+      return function (secondNum) {
+        return firstNum + secondNum;
+      }
+    }
+  </script>
+</body>
+
+</html>
