@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sum with an arbitrary amount of brackets</title>
+</head>
+
+<body>
+  <script>
+    function sum(a) {
+      let currentSum = a;
+      return function f(b) {
+        f[Symbol.toPrimitive] = () => currentSum;
+        currentSum += b;
+        return f;
+      };
+    }
+    
+    let sum1 = sum(1);
+    let sum2 = sum(1)(2);
+    let sum3 = sum(1)(2)(3);
+
+    alert( sum1 === sum2 );
+    alert( sum3 === sum2 );
+
+    console.log(sum(1));
+    console.log(sum(1)(2));
+    console.log(sum(5)(-1)(2));
+    alert(sum(1)(2) == 3); // 1 + 2
+    //total = 3;
+    alert(sum(1)(2)(3) == 6); // 1 + 2 + 3
+    alert(sum(5)(-1)(2) == 6);
+    alert(sum(6)(-1)(-2)(-3) == 0);
+    alert(sum(0)(1)(2)(3)(4)(5) == 15);
+  </script>
+</body>
+
+</html>

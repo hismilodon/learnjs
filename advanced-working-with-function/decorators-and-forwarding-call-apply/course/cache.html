@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cache</title>
+</head>
+
+<body>
+  <script>
+    function slow(x) {
+      alert(`Call with ${x}`);
+      return x;
+    }
+
+    function cachingDecorator(func) {
+      let cache = new Map();
+      return function (x) {
+        if (cache.has(x)) {
+          return cache.get(x);
+        }
+        const result = func(x);
+        
+        cache.set(x, result);
+        return result;
+      };
+    }
+
+    slow = cachingDecorator(slow);
+
+    alert(`First 1: ${slow(1)}`);
+    alert(`Again 1: ${slow(1)}`);
+
+    alert(`First 2: ${slow(2)}`);
+    alert(`Again 2: ${slow(2)}`);
+    alert(`Third 2: ${slow(2)}`);
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>minimal intervals of immediately setTimeout</title>
+</head>
+<body>
+  <script>
+    const delays = [];
+    const start = Date.now();
+
+    setTimeout(function f(){
+      const duration = Date.now() - start;
+      delays.push(duration);
+      if (duration > 1000) {
+        alert(delays);
+      } else {
+        setTimeout(f);
+      }
+    });
+  </script>
+</body>
+</html>

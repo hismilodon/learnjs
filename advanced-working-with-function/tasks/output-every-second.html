@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Output every second</title>
+</head>
+<body>
+  <script>
+    function printNumbersUseSetTimeout(a, b) {
+      let current = Math.min(a,b);
+      const end = Math.max(a,b);
+      globalThis.setTimeout(function f(){
+        if (current <= end) {
+          console.log(current++);
+          if (current <= end){
+            globalThis.setTimeout(f, 1000);
+          }
+        }
+      }, 1000);
+    }
+    //printNumbersUseSetTimeout(4, 3);
+    //printNumbersUseSetTimeout(4, 3);
+
+    function printNumbersUseSetInterval(a, b) {
+      let current = Math.min(a, b);
+      const end = Math.max(a, b);
+      const intervalId = globalThis.setInterval(() => {
+        if (current <= end)
+          console.log(current++);
+        else
+          globalThis.clearInterval(intervalId);
+      }, 1000);
+    }
+    printNumbersUseSetInterval(2, 10);
+  </script>
+</body>
+</html>
