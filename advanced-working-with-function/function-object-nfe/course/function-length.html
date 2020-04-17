@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Function length property</title>
+</head>
+<body>
+  <script>
+    function f1() {return ''};
+    function f2(a) {return a;}
+    function f3(a, b, c){return a+b+c;};
+    function f4(...rest) {return rest[0];};
+
+    alert(`${f1.length} ${f2.length} ${f3.length} ${f4.length}`);
+  </script>
+</body>
+</html>

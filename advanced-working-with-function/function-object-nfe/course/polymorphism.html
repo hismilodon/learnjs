@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Polymorphism</title>
+</head>
+
+<body>
+  <script>
+    function ask(question, ...handlers) {
+      let isYes = confirm(question);
+
+      for (let handler of handlers) {
+        if (handler.length == 0) {
+          if (isYes) handler();
+        } else {
+          handler(isYes);
+        }
+      }
+
+    }
+
+    // for positive answer, both handlers are called
+    // for negative answer, only the second one
+    ask("Question?", () => alert('You said yes'), result => alert(result));
+  </script>
+</body>
+
+</html>

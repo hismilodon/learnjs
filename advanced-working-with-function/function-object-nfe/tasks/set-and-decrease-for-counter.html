@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Set and decrease for counter</title>
+</head>
+<body>
+  <script>
+    function makeCounterClosure() {
+      let cnt = 0;
+      const counter = function(){
+        return ++cnt;
+      };
+      counter.set = function(value){
+        cnt = value;
+      }
+      counter.decrease = function(){
+        return --cnt;
+      }
+      return counter;
+    }
+
+    function makeCounterProperty(){
+      const counter = function(){
+        return ++counter.cnt;
+      }
+      counter.set = function(value){
+        counter.cnt = value;
+      }
+      counter.decrease = function(){
+        return --counter.cnt;
+      }
+      return counter;
+    }
+
+    let counter = makeCounterProperty();
+    let newCnt = counter;
+    counter = null;
+    newCnt.set(20);
+    alert(newCnt());
+    alert(newCnt.decrease());
+    alert(newCnt());
+  </script>
+</body>
+</html>

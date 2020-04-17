@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom property</title>
+</head>
+
+<body>
+  <script>
+    let sayHi = function func() {
+      alert("Hi");
+
+      // let's count how many times we run
+      func.counter++;
+      alert(this === globalThis);
+    }
+    sayHi.counter = 0; // initial value
+    
+
+    const sayHello = sayHi;
+    sayHi = null;
+    sayHello(); // Hi
+    sayHello(); // Hi
+
+    alert(`Called ${sayHello.counter} times`); // Called 2 times
+  </script>
+</body>
+
+</html>
