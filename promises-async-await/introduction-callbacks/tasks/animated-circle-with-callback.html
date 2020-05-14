@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .message-ball {
+      font-size: 20px;
+      line-height: 200px;
+      text-align: center;
+    }
+
+    .circle {
+      transition-property: width, height, margin-left, margin-top;
+      transition-duration: 2s;
+      position: fixed;
+      transform: translateX(-50%) translateY(-50%);
+      background-color: red;
+      border-radius: 50%;
+      /*
+      width: 200px;
+      height: 200px;
+      top: 150px;
+      left: 150px;
+      */
+    }
+  </style>
+  <script>
+    function startDraw() {
+      showCircle(150, 150, 100, div => {
+        div.classList.add('message-ball');
+        div.append("Hello, world!");
+      });
+    }
+
+    function showCircle(cx, cy, radius, callback) {
+      let div = document.createElement("div");
+      div.classList.add("circle");
+      div.style.top = (cy + radius) + "px";
+      div.style.left = (cx + radius) + "px";
+      div.style.width = 0;
+      div.style.height = 0;
+      document.body.append(div);
+
+      setTimeout(() => {
+        div.style.top = cy + "px";
+        div.style.left = cx + "px";
+        div.style.width = radius * 2 + "px";
+        div.style.height = radius * 2 + "px";
+        div.addEventListener("transitionend", function handler() {
+          callback(div);
+          div.removeEventListener("transitionend", handler);
+        });
+      }, 0);
+    }
+  </script>
+</head>
+
+<body>
+  <button onclick="startDraw();">Click me!</button>
+</body>
+
+</html>
