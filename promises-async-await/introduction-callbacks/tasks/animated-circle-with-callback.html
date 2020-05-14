@@ -49,10 +49,10 @@
         div.style.left = cx + "px";
         div.style.width = radius * 2 + "px";
         div.style.height = radius * 2 + "px";
-        div.addEventListener("transitionend", function handler() {
+        div.ontransitionend = () => {
+          div.ontransitionend = null;
           callback(div);
-          div.removeEventListener("transitionend", handler);
-        });
+        };
       }, 0);
     }
   </script>
