@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Two ways yield</title>
+</head>
+<body>
+  <script>
+    function* gen() {
+        // Pass a question to the outer code and wait for an answer
+        let result = yield "2 + 2 = ?"; // (*)
+
+        alert(result);
+        return 66;
+      }
+
+      let generator = gen();
+
+      let question = generator.next().value; // <-- yield returns the value
+      console.log(question);
+      let nextResult = generator.next(4); // --> pass the result into the generator
+      console.log(nextResult);
+  </script>
+</body>
+</html>

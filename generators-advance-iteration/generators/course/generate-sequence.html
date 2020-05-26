@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>generateSequence</title>
+</head>
+
+<body>
+  <script>
+    function* generateSequence() {
+      for (let i = 0; i < 3; i++) {
+        yield i;
+      }
+      return 100;
+    }
+    let generator = generateSequence();
+    let notDone = true;
+    do {
+      let result = generator.next();
+      console.log(result);
+      notDone = !result.done;
+    } while (notDone);
+   
+  </script>
+</body>
+
+</html>

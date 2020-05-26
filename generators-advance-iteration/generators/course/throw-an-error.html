@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Throw an error</title>
+</head>
+
+<body>
+  <script>
+    function* gen() {
+      try {
+        let result = yield "2 + 2 = ?"; // (1)
+
+        alert("The execution does not reach here, because the exception is thrown above");
+      } catch (e) {
+        alert(e); // shows the error
+      }
+    }
+
+    let generator = gen();
+
+    let question = generator.next().value;
+
+    generator.throw(new Error("The answer is not found in my database")); // (2)
+  </script>
+</body>
+
+</html>
